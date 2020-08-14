@@ -30,7 +30,7 @@ Role Variables
 
 **Network variables**
 
-`redis_standalone_bind_ip`: not set by default, because it's dangerous to allow redis to listen an external interface interface
+`redis_standalone_bind_ip`: not set by default, because it's dangerous to allow redis to listen an external interface
 
 `redis_standalone_port`: `"6379"`
 
