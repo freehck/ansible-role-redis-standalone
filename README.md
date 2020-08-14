@@ -13,44 +13,44 @@ Role Variables
 
 **Container variables**
 
-`redis_standalone_ct_name`: "redis"
+`redis_standalone_ct_name`: `"redis"`
 
-`redis_standalone_ct_image`: "bitnami/redis:5.0.9"
+`redis_standalone_ct_image`: `"bitnami/redis:5.0.9"`
 
-`redis_standalone_ct_restart_policy`: "always"
+`redis_standalone_ct_restart_policy`: `"always"`
 
-`redis_standalone_ct_state`: "started"
+`redis_standalone_ct_state`: `"started"`
 
-`redis_standalone_ct_restart`: "{{ ct_restart | default(false) }}"
+`redis_standalone_ct_restart`: `"{{ ct_restart | default(false) }}"`
 
-`redis_standalone_ct_pull`: "{{ ct_pull | default(true) }}"
+`redis_standalone_ct_pull`: `"{{ ct_pull | default(true) }}"`
 
-`redis_standalone_ct_recreate`: "{{ ct_recreate | default(false) }}"
+`redis_standalone_ct_recreate`: `"{{ ct_recreate | default(false) }}"`
 
 
 **Network variables**
 
-`redis_standalone_bind_ip`: default is "{{ backnet_ip }}" # it's dangerous to run redis world-wide accessible
+`redis_standalone_bind_ip`: not set by default, because it's dangerous to allow redis to listen an external interface interface
 
-`redis_standalone_port`: "6379"
+`redis_standalone_port`: `"6379"`
 
 
 **Files and directories**
 
-`redis_standalone_env_file_template`: "env.j2"
+`redis_standalone_env_file_template`: `"env.j2"`
 
-`redis_standalone_srv_dir`: "/srv/{{ redis_standalone_ct_name }}"
+`redis_standalone_srv_dir`: `"/srv/{{ redis_standalone_ct_name }}"`
 
-`redis_standalone_env_file`: "{{ redis_standalone_srv_dir }}/env"
+`redis_standalone_env_file`: `"{{ redis_standalone_srv_dir }}/env"`
 
-`redis_standalone_data_dir`: "{{ redis_standalone_srv_dir }}/data"
+`redis_standalone_data_dir`: `"{{ redis_standalone_srv_dir }}/data"`
 
 
 **Service configuration**
 
-`redis_standalone_allow_empty_password`: "yes"
+`redis_standalone_allow_empty_password`: `"yes"`
 
-`redis_standalone_redis_password`: ""
+`redis_standalone_redis_password`: `""`
 
 
 Example
