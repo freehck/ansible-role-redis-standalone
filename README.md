@@ -56,19 +56,19 @@ Role Variables
 Example
 -------
 
-- hosts:
-    - redis
-  become: true
-  roles:
-    - role: freehck.pkg_install
-      pkg_install_packages:
-        - docker.io
-        - python3-pip
-    - role: freehck.pip_install
-      pip_install_packages:
-        - docker
-    - role: freehck.redis_standalone
-      redis_standalone_bind_ip: "{{ ansible_host }}"
+    - hosts:
+        - redis
+      become: true
+      roles:
+        - role: freehck.pkg_install
+          pkg_install_packages:
+            - docker.io
+            - python3-pip
+        - role: freehck.pip_install
+          pip_install_packages:
+            - docker
+        - role: freehck.redis_standalone
+          redis_standalone_bind_ip: "{{ ansible_host }}"
 
 
 Install
