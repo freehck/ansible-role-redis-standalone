@@ -11,7 +11,7 @@ This role is for simple one-node redis deployment when you need to quickly setup
 Role Variables
 --------------
 
-** Container variables **
+**Container variables**
 
 `redis_standalone_ct_name`: "redis"
 
@@ -28,14 +28,14 @@ Role Variables
 `redis_standalone_ct_recreate`: "{{ ct_recreate | default(false) }}"
 
 
-** network variables **
+**Network variables**
 
 `redis_standalone_bind_ip`: default is "{{ backnet_ip }}" # it's dangerous to run redis world-wide accessible
 
 `redis_standalone_port`: "6379"
 
 
-** files and directories **
+**Files and directories**
 
 `redis_standalone_env_file_template`: "env.j2"
 
@@ -46,7 +46,7 @@ Role Variables
 `redis_standalone_data_dir`: "{{ redis_standalone_srv_dir }}/data"
 
 
-** service configuration **
+**Service configuration**
 
 `redis_standalone_allow_empty_password`: "yes"
 
