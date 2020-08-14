@@ -1,0 +1,19 @@
+---
+redis_standalone_ct_name: "redis"
+redis_standalone_ct_image: "bitnami/redis:5.0.9"
+#redis_standalone_bind_ip: "{{ backnet_ip }}" # it's dangerous to run redis world-wide accessible
+redis_standalone_port: "6379"
+
+redis_standalone_ct_restart_policy: "always"
+redis_standalone_ct_state: "started"
+redis_standalone_ct_restart: "{{ ct_restart | default(false) }}"
+redis_standalone_ct_pull: "{{ ct_pull | default(true) }}"
+redis_standalone_ct_recreate: "{{ ct_recreate | default(false) }}"
+
+redis_standalone_env_file_template: "env.j2"
+redis_standalone_srv_dir: "/srv/{{ redis_standalone_ct_name }}"
+redis_standalone_env_file: "{{ redis_standalone_srv_dir }}/env"
+redis_standalone_data_dir: "{{ redis_standalone_srv_dir }}/data"
+
+redis_standalone_allow_empty_password: "yes"
+redis_standalone_redis_password: ""

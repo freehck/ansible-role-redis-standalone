@@ -1,0 +1,22 @@
+---
+
+- name: create env file
+  template:
+    src: "{{ redis_standalone_env_file_template }}"
+    dest: "{{ redis_standalone_env_file }}"
+    mode: 0644
+
+- name: redis_standalone container
+  docker_container:
+    name: "{{ redis_standalone_ct_name }}"
+    image: "{{ redis_standalone_ct_image }}"
+    volumes:
+      - "{{ redis_standalone_data_dir }}:/bitnami/redis/data"
+    ports:
+      - "{{ redis_standalone_bind_ip }}:{{ redis_standalone_port }}:6379"
+    env_file: "{{ redis_standalone_env_file }}"
+    restart_policy: "{{ redis_standalone_ct_restart_policy }}"
+    state: "{{ redis_standalone_ct_state }}"
+    restart: "{{ redis_standalone_ct_restart }}"
+    pull: "{{ redis_standalone_ct_pull }}"
+    recreate: "{{ redis_standalone_ct_recreate }}"
